@@ -6,8 +6,8 @@ body {
 
 /*font-style: 'Open Sans Condensed', sans-serif;*/
 
-background-color: green;
-/*background-image: url('../image/softCloth.png');*/
+
+background-image: url('../image/softCloth.png');
 background-repeat: no-repeat;
 background-size: cover;
 }
@@ -110,7 +110,7 @@ img {
     vertical-align: middle;
     margin-top: 50px;
     border: 2px solid #2d2d30;
-    margin-bottom: 100px;
+  
 }
 
 
