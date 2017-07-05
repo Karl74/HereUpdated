@@ -110,7 +110,15 @@ img {
     vertical-align: middle;
     margin-top: 50px;
     border: 2px solid #2d2d30;
-  
+
+}
+
+
+h3 {
+
+padding-top: 20px;
+
+
 }
 
 
@@ -120,7 +128,7 @@ color: black;
 font-size: 140px;
 font-family: 'Merriweather', serif;
 text-align: center;
-/*padding-bottom: 130px;*/
+border-bottom: 2px white solid
 
 
 }
