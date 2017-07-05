@@ -6,8 +6,8 @@ body {
 
 /*font-style: 'Open Sans Condensed', sans-serif;*/
 
-background-color: green;
-/*background-image: url('../image/softCloth.png');*/
+
+background-image: url('../image/softCloth.png');
 background-repeat: no-repeat;
 background-size: cover;
 }
@@ -110,7 +110,15 @@ img {
     vertical-align: middle;
     margin-top: 50px;
     border: 2px solid #2d2d30;
-    margin-bottom: 100px;
+
+}
+
+
+h3 {
+
+padding-top: 20px;
+
+
 }
 
 
@@ -120,7 +128,7 @@ color: black;
 font-size: 140px;
 font-family: 'Merriweather', serif;
 text-align: center;
-/*padding-bottom: 130px;*/
+border-bottom: 2px white solid
 
 
 }
