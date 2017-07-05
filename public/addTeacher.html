@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/styleForm.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<style>
+body {
+font-style: 'Open Sans Condensed', sans-serif;
+  background-image: url('/image/softCloth.png');
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+
+
+
+h2 {
+  padding-top: 35px;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px white solid;
+  margin-left: 300px !important;
+  margin-right: 300px !important;
+  font-family: 'Open Sans Condensed', sans-serif !important;
+}
+
+.text {
+
+background-color: white;
+
+}
+
+
+.booksLong {
+margin-left: -300px;
+margin-bottom: 0px;
+margin-top: 0px;
+border-bottom: 2px solid white;
+}
+
+.image {
+   position: relative;
+}
+
+
+
+.form-group {
+margin-top: 400px;
+}
+
+label {
+font-family: 'Open Sans Condensed', sans-serif;
+font-size: 30px;
+margin-left: 450px;
+}
+
+button {
+margin-top: 100px;
+margin-left: 600px;
+font-family: 'Open Sans Condensed', sans-serif;
+padding: 18px;
+font-size: 18px;
+border-radius: 15px;
+background-color: white;
+}
+
+
+.btn {
+margin-bottom: 130px;
+
+}
+
+input {
+width: 50px;
+font-size: 40px;
+margin-left: 450px !important;
+}
+
+.form-group {
+
+margin-top: 100px;
+
+}
+
+
+.form-control {
+width: 200px;
+margin-left: 650px;
+
+}
+</style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <nav class="navbar navbar-fixed-top">
+    <!-- <div class="container-fluid"> -->
+    <div>
+
+    </div>
+    <!-- <a class="navbar-brand" href="#myPage">Login</a> -->
+        </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/api/login">HOME</a></li>
+          <li><a href="#band">BAND</a></li>
+          <li><a href="#tour">TOUR</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Merchandise</a></li>
+              <li><a href="#">Extras</a></li>
+              <li><a href="#">Media</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class = "container">
+
+  <img src="../image/booksLong.jpg" class="booksLong"/>
+
+      <img src = "/image/schoolEmblem.jpg" height="240" width="240"/>
+
+  <p>Here.</p>
+
+<div id="formBorder">
+
+
+<h2>Add Teacher</h2>
+
+<div class="form-group">
+<label for="usr">Add Teacher Name:</label>
+<input type="text" class="form-control" id="usr" value="">
+</div>
+
+<button id="submit" type="button" class="btn btn-secondary">Add Teacher</button>
+
+<!-- <div id="test"><div>
+</div> -->
+
+
+</div>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+
+$("#submit").on("click", function(){
+  event.preventDefault();
+  var newTeacher = {teachername: $("#usr").val()};
+  console.log(newTeacher);
+  $.post("admin/addTeacher", newTeacher, function(data){
+          alert("You saved a teacher");
+        });
+});
+
+
+</script>
+
+</body>
+</html>

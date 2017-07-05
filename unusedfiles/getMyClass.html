@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ugly attendance form </title>
+  </head>
+  <body>
+
+<h1>
+Welcome to the attendance Ugly page.
+</h1>
+<hr>
+
+<h2>Those are our awesome teachers</h2>
+  <select id="dropMenu" name="teacher">
+
+  </select>
+<hr>
+
+<h1>
+  The students for this class are:
+</h1>
+
+  <div id="allTheStudents">
+
+  </div>
+
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script type="text/javascript">
+
+// A- get all the school teachers and display them on the dropMenu
+$.get("/api/admin/teachers", function(data){
+  console.log(data);
+  for(i = 0; i < data.length; i ++){
+      var choice = $("<option>");
+      choice.attr("data-id", data[i]._id);
+      choice.html(data[i].teachername);
+      $("#dropMenu").append(choice);
+    }
+// A-1 - Get the value of the teacher
+      $("#dropMenu").on("click", function(){
+      var teacherName = $("#dropMenu").val();
+      console.log(teacherName);
+      teacher = $("#dropMenu option:selected").attr("data-id");
+      console.log(teacher);
+    });
+});
+
+// B- Gets all the school students and display them on the screen
+$.get("/api/admin/callaclass", function(data){
+  console.log("the students===>");
+  console.log(data);
+  var roster = data[0].Student;
+  console.log(roster);
+
+for(i = 0; i < roster.length; i++){
+  var studentdiv = $("<div>");
+  studentdiv.css({
+    "background-color": "black",
+    "color": "white",
+    "border": "solid 2px grey"
+  });
+  studentdiv.html(roster[i].firstName);
+  studentdiv.attr("name", roster[i].firstName);
+  studentdiv.attr("id", roster[i]._id);
+  $("#allTheStudents").append(studentdiv);
+
+  });
+  }
+});
+
+</script>
+  </body>
+
+</html>

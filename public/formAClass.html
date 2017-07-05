@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/../css/styleForm.css">
+  <!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<!-- |A| THE NAV BAR ====================================================== -->
+  <nav class="navbar navbar-fixed-top">
+    <div>
+    </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#myPage">HOME</a></li>
+          <li><a href="#band">BAND</a></li>
+          <li><a href="#tour">TOUR</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Merchandise</a></li>
+              <li><a href="#">Extras</a></li>
+              <li><a href="#">Media</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>  <!-- END OF NAV BAR -->
+
+<div class = "container">
+<!-- | B | LOGO HEADER ===================================================== -->
+  <img src = "/../image/schoolEmblem.jpg" height="175" width="175"/>
+  <p>Here.</p>
+
+  <div id="formBorder">
+<!-- | C | CLASS NAME INPUT GROUP========================================== -->
+    <form>
+      <div class="form-group">
+        <label for="">Class Name:</label>
+        <input type="text" class="form-control" id="class-Title">
+      </div>
+
+    </form>
+
+<!-- | D | TEACHER DROP DOWN MENU========================================== -->
+    <div class="w3-container">
+      <button onclick="myFunction('Demo3')" class="w3-btn w3-block w3-white">
+        <h3>Click to Choose Teacher</h3>
+      </button>
+
+      <div id="Demo3" class="w3-hide w3-container w3-center w3-grey">
+        <select id="teachersMenu">
+        </select>
+      </div>
+
+    </div> <!-- END OF DROPDOWN MENU -->
+
+<!-- |EXTRA| BUTTON TO SAVE THE CLASS INTO THE DATABASE ================= -->
+  <div class="">
+    <button id="saveClass">CREATE THE CLASS </button>
+  </div>
+
+
+<!-- | E | FORM A ROSTER DRAG AND DROP AREAS=============================== -->
+<!-- ====Title Row===================================================== -->
+    <div class="row">
+      <div id = "classAssembly">
+        <div class="col-sm-6">Students:</div>
+        <div class="col-sm-6">Class Assembly:</div>
+      </div>
+    </div>
+
+<!-- ====All the students Box============================================== -->
+    <div id = "column1">
+      <ul id="sortable1" class="droptrue"> </ul>
+    </div>
+
+<!-- ==== Roste Box ++++++++++============================================== -->
+    <div id = "column2">
+      <ul id="sortable2" class="dropfalse">
+      </ul>
+    </div>
+    <button id="whoIsThere">Show me</button>
+
+  </div> <!-- END OF FORM BORDER -->
+</div> <!-- END OF CONTAINER (END OF THE DOCUMENT) -->
+<script>
+var classRoster = [];
+var teacher;
+var classTitle;
+var classModel ={};
+
+// | Script A | GET ALL THE STUDENTS FROM THE DATABASE +++++++++++++++++++
+// Ajax call
+$.get("/api/admin/students", function(data){
+  console.log(data);// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  for(i = 0; i < data.length; i++){
+// Create a <li> element for each student +++++++++++++++++++++++++++++++++
+    var studentLi = $("<li>");
+    studentLi.html(data[i].firstName);
+    studentLi.attr("id", data[i]._id);
+    $("#sortable1").append(studentLi);
+    }
+});// end of the student's Ajax function
+
+// |Script B| DROP AND DRAG FUNCTIONS +++++++++++++++++++++++++++++++++++++++
+$(function() {
+  $( "ul.droptrue" ).sortable({
+    connectWith: "ul"
+  });
+  $( "ul.dropfalse" ).sortable({
+    connectWith: "ul",
+    dropOnEmpty: false
+  });
+  $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
+});
+
+// |Script C| GET THE STUDENTS ID'S INSIDE THE CLASS BOX+++++++++++++++++++++++
+ $("#whoIsThere").on("click", function(){
+   event.preventDefault();
+//Grabs all the elements inside the dropablebox and store in var group +++++++
+   var group = $("#sortable2").children();
+//Push every student id into the variable ClassRoster +++++++++++++++++++++++++++++
+   for(i = 0; i < group.length; i++){
+     classRoster.push(group[i].id);
+     }
+   console.log(classRoster); //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+});
+
+// |Script D| SHOWS THE DROPDOWN MENU FOR THE TEACHERS FORM +++++++++++++++++++
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    };
+
+  // |Script E| GET THE TEACHER'S NAME FROM THE DATABASE+++++++++++++++++++++++
+// Ajax call
+$.get("/api/admin/teachers", function(data){
+  console.log(data);
+//Render each teacher name inside the dropdown menu
+  for(i = 0; i < data.length; i ++){
+    var choice = $("<option>");
+    choice.attr("data-id", data[i]._id);
+    choice.html(data[i].teachername);
+    $("#teachersMenu").append(choice);
+    }
+// |Script F| STORES THE ID OF THE SELECTED TEACHER ++++++++++++++++++++++++++
+    $("#teachersMenu").on("click", function(){
+    var teacherName = $("#teachersMenu").val();
+    console.log(teacherName);
+    teacher = $("#teachersMenu option:selected").attr("data-id");
+    console.log(teacher);
+  });
+}); //End of teacher Ajax call
+
+// |Script G| STORE THE NEW CLASS IN THE DATA BASE +++++++++++++++++++++++++++++
+
+$("#saveClass").on("click", function(){
+    classTitle = $("#class-Title").val();
+
+    classModel.NameClass = classTitle;
+  
+    classModel.teacher = teacher;
+    classModel.Student = classRoster;
+    console.log(classModel);
+
+  $.post("admin/addClass", classModel, function(){
+    alert("You saved a class");
+    });
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+<style>
+
+h1 {
+
+color: red;
+
+}
+
+</style>
+
+
+<h1>Hello!!</h1>
+
+<% if (!user) { %>
+	<p>Welcome! Please <a href="/login">log in</a>.</p>
+<% } else { %>
+	<p>Hello, <%= user.username %>. View your <a href="/Welcome">profile</a>.</p>
+<% } %>

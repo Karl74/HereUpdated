@@ -1,0 +1,165 @@
+
+<!-- <button type="button" class="btn btn-secondary">Add Student</button> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<!-- Optional theme -->
+<!-- <link rel="stylesheet" href="/public/css/styleForm.css"> -->
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> --> -->
+
+  <style>
+
+body {
+
+  font-style: 'Open Sans Condensed', sans-serif;
+  background-image: url('./css/image/softCloth.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+
+  .booksLong {
+  margin-left: -300px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-bottom: 2px solid white;
+  }
+
+
+.form-group {
+  margin-top: 100px;
+
+  }
+
+  label {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 30px;
+  margin-left: 425px;
+  }
+
+  button {
+  margin-top: 100px;
+  margin-left: 600px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 18px;
+  font-size: 18px;
+  border-radius: 15px;
+  background-color: white;
+  }
+
+  .form-control {
+  width: 200px;
+
+
+  }
+
+  input {
+  width: 50px;
+font-size: 40px;
+margin-left: 450px !important;
+  }
+
+
+
+</style>
+</head>
+
+
+
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-fixed-top">
+      <!-- <div class="container-fluid"> -->
+      <div>
+
+      </div>
+      <!-- <a class="navbar-brand" href="#myPage">Login</a> -->
+          </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/api/login">HOME</a></li>
+            <li><a href="#band">BAND</a></li>
+            <li><a href="#tour">TOUR</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Merchandise</a></li>
+                <li><a href="#">Extras</a></li>
+                <li><a href="#">Media</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class = "container">
+
+    <img src="../image/booksLong.jpg" class="booksLong"/>
+
+        <img src = "/image/schoolEmblem.jpg" height="240" width="240"/>
+
+
+  <p>Here.</p>
+
+
+<div id="formBorder">
+
+
+  <h1>Add Class</h1>
+
+  <div class="form-group">
+  <label for="usr">Add Class Name:</label>
+  <input type="text" class="form-control" id="usr" value="">
+  </div>
+
+  <button id="submit" type="button" class="btn btn-secondary">Add Class</button>
+
+  <!-- <div id="test"><div>
+  </div> -->
+
+
+  </div>
+
+
+  </div>
+
+
+
+  <script>
+$("#submit").on("click", function(){
+  event.preventDefault();
+  var newStudent = {firstName: $("#usr").val()};
+  console.log(newStudent);
+  $.post("admin/addstudent", newStudent, function(data){
+        alert("You saved a class!!!");
+      });
+  });
+  </script>
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
