@@ -55,6 +55,6 @@ router.get("/addClass", function(req,res) {
 // | T | TEMPORAL ROUTES MUST BE DESTROYED  +++++==========================================
 
 router.get("/getmyclass", function(req, res) {
-res.sendFile(path.join(__dirname, "../unusedfiles/getMyClass.html"));
+res.sendFile(path.join(__dirname, "../public/getMyClass.html"));
   });
 module.exports = router;
