@@ -27,16 +27,6 @@ margin-top: 100px;
 
 }
 
-/*.books {
-width: 1140px;
-margin-bottom: 200px;
-display: block;
-margin: auto;
-width: 70%;
-border: 2px solid black;
-}*/
-
-
 
 label {
 font-family: 'Open Sans Condensed', sans-serif;
@@ -45,7 +35,7 @@ margin-left: 450px;
 padding: 15px;
 }
 
-button {
+.btn {
 margin-top: 100px;
 margin-left: 600px;
 font-family: 'Open Sans Condensed', sans-serif;
@@ -56,9 +46,9 @@ background-color: white;
 padding-bottom: 50px;
 }
 
-input {
+input.form-control {
 margin-left: 400px;
-padding: 30px;
+
 padding-bottom: 40px;
 }
 
@@ -75,43 +65,57 @@ border-bottom: 2px solid white;
 
 </head>
 
-
-
 <body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/../css/styleForm.css">
+    <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  <div class="container">
+  </head>
 
-    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-      <nav class="navbar navbar-fixed-top">
-        <!-- <div class="container-fluid"> -->
-        <div>
-
-        </div>
-        <!-- <a class="navbar-brand" href="#myPage">Login</a> -->
-            </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/api/login">HOME</a></li>
-              <li><a href="#band">BAND</a></li>
-              <li><a href="#tour">TOUR</a></li>
-              <li><a href="#contact">CONTACT</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Merchandise</a></li>
-                  <li><a href="#">Extras</a></li>
-                  <li><a href="#">Media</a></li>
-                </ul>
-              </li>
-              <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <!-- |A| THE NAV BAR ====================================================== -->
+    <nav class="navbar navbar-fixed-top">
+      <div>
+      </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/api/login">HOME</a></li>
+            <li><a href="/api/stuForm">Student</a></li>
+            <li><a href="/api/teacherform">Teacher</a></li>
+            <li><a href="/api/formaClass">Class</a></li>
+            <li class="dropdown">
+               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Merchandise</a></li>
+                <li><a href="#">Extras</a></li>
+                <li><a href="#">Media</a></li>
             </ul>
-          </div>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>  <!-- END OF NAV BAR -->
+
     <div class = "container">
 
-  <img src="../image/booksLong.jpg" class="booksLong"/>
+<img src="../image/booksLong.jpg" class="booksLong" height="240"/>
 
       <img src = "/image/schoolEmblem.jpg" height="240" width="240"/>
 
@@ -119,11 +123,7 @@ border-bottom: 2px solid white;
 
     <p>Here.</p>
 
-
-
-
-
-    <div id="formBorder">
+  <div id="formBorder">
 
 
 <h1>Add Student</h1>
@@ -150,8 +150,7 @@ border-bottom: 2px solid white;
 
 
 </div>
-</body>
-</html>
+
   <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -172,14 +171,6 @@ $("#submit").on("click", function(){
 
 
 </script>
-
-
-
-
-
-
-
-
 
 </body>
 </html>
