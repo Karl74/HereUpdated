@@ -32,13 +32,6 @@ background-image: url("/image/softCloth.png");
   background-size: cover;
   }
 
-  .booksLong {
-  margin-left: -300px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  border-bottom: 2px solid white;
-  }
-
 
 .form-group {
   margin-top: 100px;
@@ -90,7 +83,7 @@ margin-left: 450px !important;
           </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/api/login">HOME</a></li>
+            <li><a href="/api/admin/home">HOME</a></li>
             <li><a href="/api/stuForm">Student</a></li>
             <li><a href="/api/teacherform">Teacher</a></li>
             <li><a href="/api/formaClass">Class</a></li>
@@ -101,19 +94,6 @@ margin-left: 450px !important;
                 <li><a href="#">Merchandise</a></li>
                 <li><a href="#">Extras</a></li>
                 <li><a href="#">Media</a></li>
-
-
-            <!-- <li><a href="/api/login">HOME</a></li>
-            <li><a href="/api/stuForm">Student</a></li>
-            <li><a href="/api/teacherform">Teacher</a></li>
-            <li><a href="/api/formaClass">Class</a></li>
-            <li class="dropdown">
-               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Merchandise</a></li>
-                <li><a href="#">Extras</a></li>
-                <li><a href="#">Media</a></li> -->
               </ul>
             </li>
             <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
@@ -129,6 +109,15 @@ margin-left: 450px !important;
 
 
   <p>Here.</p>
+
+  <h3 id="demo"></h3>
+
+<script>
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.toDateString();
+</script>
+
+
 
 
 <div id="formBorder">

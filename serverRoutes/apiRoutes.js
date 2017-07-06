@@ -13,6 +13,8 @@ router.post("admin/takeAttendance", attController.takeAttendance);
 router.get("/admin/students", attController.callroster);
 router.get("/admin/teachers", attController.callTeachers);
 router.get("/admin/callaclass", attController.callAClass);
+router.get("/classesfor/:teacher", attController.callAClass);
+
 
 // | N | NAVIGATION  +++++==========================================
 
@@ -55,6 +57,6 @@ router.get("/addClass", function(req,res) {
 // | T | TEMPORAL ROUTES MUST BE DESTROYED  +++++==========================================
 
 router.get("/getmyclass", function(req, res) {
-res.sendFile(path.join(__dirname, "../unusedfiles/getMyClass.html"));
+res.sendFile(path.join(__dirname, "../public/getMyClass.html"));
   });
 module.exports = router;

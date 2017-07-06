@@ -57,8 +57,11 @@ callTeachers: function (req, res){
   });
 },
 
+
 callAClass: function(req, res){
-  ClassModel.find({teacher:"5951c6b6ff338834f42ec15c"}).
+  var teacher = req.params.teacher;
+  console.log(teacher);
+  ClassModel.find({teacher:teacher}).
   populate("Teacher", "teachername").
   populate("Student", "firstName").
   exec(function(err, classModels){
