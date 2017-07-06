@@ -304,6 +304,16 @@ border-radius: 15px;
 }
 
 
+#saveClass {
+font-style:'Open Sans Condensed', sans-serif !important;
+background-color: black;
+color: white;
+padding: 20px;
+border-radius: 15px;
+}
+
+
+
 #myNavbar.collapse.navbar-collapse {
         font-family: Montserrat, sans-serif;
         margin-bottom: 0px;
