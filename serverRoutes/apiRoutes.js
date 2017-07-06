@@ -8,11 +8,15 @@ var router = new express.Router();
 router.post("/admin/addStudent", attController.addStudent);
 router.post("/admin/addTeacher", attController.addTeacher);
 router.post("/admin/addClass", attController.addClass);
-router.post("admin/takeAttendance", attController.takeAttendance);
+router.post("/admin/takeAttendance", attController.takeAttendance);
 // | -R | READ QUERIES =============================================
 router.get("/admin/students", attController.callroster);
 router.get("/admin/teachers", attController.callTeachers);
 router.get("/admin/callaclass", attController.callAClass);
+router.get("/classesfor/:teacher", attController.callAClass);
+
+
+
 
 // | N | NAVIGATION  +++++==========================================
 
@@ -55,6 +59,6 @@ router.get("/addClass", function(req,res) {
 // | T | TEMPORAL ROUTES MUST BE DESTROYED  +++++==========================================
 
 router.get("/getmyclass", function(req, res) {
-res.sendFile(path.join(__dirname, "../unusedfiles/getMyClass.html"));
+res.sendFile(path.join(__dirname, "../public/getMyClass.html"));
   });
 module.exports = router;
