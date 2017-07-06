@@ -8,7 +8,7 @@ var router = new express.Router();
 router.post("/admin/addStudent", attController.addStudent);
 router.post("/admin/addTeacher", attController.addTeacher);
 router.post("/admin/addClass", attController.addClass);
-router.post("admin/takeAttendance", attController.takeAttendance);
+router.post("/admin/takeAttendance", attController.takeAttendance);
 // | -R | READ QUERIES =============================================
 router.get("/admin/students", attController.callroster);
 router.get("/admin/teachers", attController.callTeachers);

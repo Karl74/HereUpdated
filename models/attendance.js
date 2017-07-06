@@ -4,17 +4,14 @@ var Schema = mongoose.Schema;
 
 var attendanceSchema = new Schema({
   Date: {
-    type: "date",
-    unique: true
+    type: Date,
+    default: Date.now
   },
 
-  class: [{ type: Schema.Types.ObjectId, ref: "classModel"}],
+  classId: { type: Schema.Types.ObjectId, ref: "classModel"},
 
-  Student: [{type: Schema.Types.ObjectId, ref: "Student"}],
+  group: [{Student: {type: Schema.Types.ObjectId, ref: "Student"}, present: Boolean, tardy: Boolean}],
 
-  present: Boolean,
-
-  tardy: Boolean
 });
 
 var Attendance = mongoose.model("Attendance", attendanceSchema);
