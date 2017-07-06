@@ -115,6 +115,7 @@ padding: 100px;
 // A- get all the school teachers and display them on the dropMenu
 var attendance = [];
 var chosenclass = [];
+var recordAttendance = [];
 
 $.get("/api/admin/teachers", function(data){
   console.log(data);
@@ -216,9 +217,17 @@ function tardy(id){
 }
 
 function setAttendaceObject(){
- console.log(attendance);
- console.log(chosenclass);
+ recordAttendance.push({
+   classId: chosenclass,
+   group: attendance
+ });
+ console.log(recordAttendance);
+ $.post("admin/takeAttendance", recordAttendance, function(data){
+   alert("you had take attendance");
+ });
 }
+
+
 
 </script>
   </body>
