@@ -43,6 +43,7 @@ padding: 100px;
               <li><a href="/api/stuForm">Student</a></li>
               <li><a href="/api/teacherform">Teacher</a></li>
               <li><a href="/api/formaClass">Class</a></li>
+                <li><a href="/api/getMyClass">Attendence</a></li>
               <li class="dropdown">
                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
                 <span class="caret"></span></a>
@@ -50,6 +51,7 @@ padding: 100px;
                   <li><a href="#">Merchandise</a></li>
                   <li><a href="#">Extras</a></li>
                   <li><a href="#">Media</a></li>
+
                 </ul>
               </li>
               <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
@@ -115,6 +117,7 @@ padding: 100px;
 // A- get all the school teachers and display them on the dropMenu
 var attendance = [];
 var chosenclass = [];
+var recordAttendance = [];
 
 $.get("/api/admin/teachers", function(data){
   console.log(data);
@@ -216,9 +219,17 @@ function tardy(id){
 }
 
 function setAttendaceObject(){
- console.log(attendance);
- console.log(chosenclass);
+ recordAttendance.push({
+   classId: chosenclass,
+   group: attendance
+ });
+ console.log(recordAttendance);
+ $.post("admin/takeAttendance", recordAttendance, function(data){
+   alert("you had take attendance");
+ });
 }
+
+
 
 </script>
   </body>
