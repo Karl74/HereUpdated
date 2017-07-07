@@ -12,6 +12,15 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
+.booksLong {
+margin-left: -300px;
+margin-bottom: 0px;
+margin-top: 0px;
+border-bottom: 2px solid white;
+height: 240px;
+}
+
+
 .box h3{
   text-align:center;
     position:relative;
@@ -109,10 +118,22 @@ img {
     margin-left: -25px;
     vertical-align: middle;
     margin-top: 50px;
-    border: 2px solid #2d2d30;
+    /*border: 2px solid #2d2d30;*/
 
 }
 
+
+
+h2 {
+
+font-family: 'Merriweather', serif;
+
+}
+
+#demo {
+
+
+}
 
 h3 {
 
@@ -121,17 +142,29 @@ padding-top: 20px;
 
 }
 
+/*.booksLong {
+margin-left: -300px;
+margin-bottom: 0px;
+margin-top: 0px;
+border-bottom: 2px solid white;
+height: 240px;
+}*/
 
 p {
 
 color: black;
 font-size: 140px;
-font-family: 'Merriweather', serif;
+font-family: 'Merriweather', serif !important;
 text-align: center;
 border-bottom: 2px white solid
-
-
 }
+
+input.form-control {
+margin-left: 400px;
+font-size: 30px;
+}
+
+
 
 #formBorder {
 border: 7px solid grey;
@@ -140,7 +173,7 @@ background-color: rgba(32, 39, 27, 0.1);
 overflow: hidden;
 padding-top: 50px;
 margin-bottom: 250px;
-margin-top: 150px;
+margin-top: 115px;
 }
 
 h1 {
@@ -160,9 +193,6 @@ font-family: 'Open Sans Condensed', sans-serif !important;
     top: 80px;
     color: white;
 }
-
-
-
 
 #classAssembly {
 font-family: 'Open Sans Condensed', sans-serif;
@@ -281,6 +311,19 @@ border-radius: 15px;
    background: #1b435e;
 
 }
+
+
+#saveClass {
+font-style:'Open Sans Condensed', sans-serif !important;
+background-color: black;
+color: white;
+padding: 20px;
+border-radius: 15px;
+margin-top: 600px;
+float: right;
+clear: both;
+}
+
 
 
 #myNavbar.collapse.navbar-collapse {
