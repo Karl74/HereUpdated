@@ -110,7 +110,6 @@ var classRoster = [];
 var teacher;
 var classTitle;
 var classModel ={};
-
 // | Script A | GET ALL THE STUDENTS FROM THE DATABASE +++++++++++++++++++
 // Ajax call
 $.get("/api/admin/students", function(data){
@@ -123,7 +122,6 @@ $.get("/api/admin/students", function(data){
     $("#sortable1").append(studentLi);
     }
 });// end of the student's Ajax function
-
 // |Script B| DROP AND DRAG FUNCTIONS +++++++++++++++++++++++++++++++++++++++
 $(function() {
   $( "ul.droptrue" ).sortable({
@@ -135,7 +133,6 @@ $(function() {
   });
   $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
 });
-
 // |Script C| GET THE STUDENTS ID'S INSIDE THE CLASS BOX+++++++++++++++++++++++
  $("#whoIsThere").on("click", function(){
    event.preventDefault();
@@ -147,7 +144,6 @@ $(function() {
      }
    console.log(classRoster); //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 });
-
 // |Script D| SHOWS THE DROPDOWN MENU FOR THE TEACHERS FORM +++++++++++++++++++
 function myFunction(id) {
     var x = document.getElementById(id);
@@ -157,7 +153,6 @@ function myFunction(id) {
         x.className = x.className.replace(" w3-show", "");
       }
     };
-
   // |Script E| GET THE TEACHER'S NAME FROM THE DATABASE+++++++++++++++++++++++
 // Ajax call
 $.get("/api/admin/teachers", function(data){
@@ -177,23 +172,17 @@ $.get("/api/admin/teachers", function(data){
     console.log(teacher);
   });
 }); //End of teacher Ajax call
-
 // |Script G| STORE THE NEW CLASS IN THE DATA BASE +++++++++++++++++++++++++++++
-
 $("#saveClass").on("click", function(){
     classTitle = $("#class-Title").val();
-
     classModel.NameClass = classTitle;
-
     classModel.teacher = teacher;
     classModel.Student = classRoster;
     console.log(classModel);
-
   $.post("admin/addClass", classModel, function(){
     alert("You saved a class");
     });
 });
-
 </script>
 </body>
 </html>
