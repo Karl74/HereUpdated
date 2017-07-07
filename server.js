@@ -17,6 +17,9 @@ app.use(bodyParser.json());
 // app.use(express.static(__dirname + "/public"));
 app.use("/", routes);
 
+
+//-------------Database configuration with Mon
+
 var db = process.env.MONGODB_URI || "mongodb://localhost/here";
 /////////////////New Passport Information//////////////////////
 passport.use(new Strategy(
