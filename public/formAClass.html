@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="/../css/styleForm.css">
   <!-- Optional theme -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -26,10 +27,11 @@
     </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/api/login">HOME</a></li>
+          <li><a href="/api/admin/home">HOME</a></li>
           <li><a href="/api/stuForm">Student</a></li>
           <li><a href="/api/teacherform">Teacher</a></li>
           <li><a href="/api/formaClass">Class</a></li>
+          <li><a href="/api/getMyClass">Attendence</a></li>
           <li class="dropdown">
              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
             <span class="caret"></span></a>
@@ -38,19 +40,6 @@
               <li><a href="#">Extras</a></li>
               <li><a href="#">Media</a></li>
 
-
-
-          <!-- <li><a href="#myPage">HOME</a></li>
-          <li><a href="#band">BAND</a></li>
-          <li><a href="#tour">TOUR</a></li>
-          <li><a href="#contact">CONTACT</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
-            <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Merchandise</a></li>
-              <li><a href="#">Extras</a></li>
-              <li><a href="#">Media</a></li> -->
             </ul>
           </li>
           <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
@@ -121,7 +110,6 @@ var classRoster = [];
 var teacher;
 var classTitle;
 var classModel ={};
-
 // | Script A | GET ALL THE STUDENTS FROM THE DATABASE +++++++++++++++++++
 // Ajax call
 $.get("/api/admin/students", function(data){
@@ -134,7 +122,6 @@ $.get("/api/admin/students", function(data){
     $("#sortable1").append(studentLi);
     }
 });// end of the student's Ajax function
-
 // |Script B| DROP AND DRAG FUNCTIONS +++++++++++++++++++++++++++++++++++++++
 $(function() {
   $( "ul.droptrue" ).sortable({
@@ -146,7 +133,6 @@ $(function() {
   });
   $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
 });
-
 // |Script C| GET THE STUDENTS ID'S INSIDE THE CLASS BOX+++++++++++++++++++++++
  $("#whoIsThere").on("click", function(){
    event.preventDefault();
@@ -158,7 +144,6 @@ $(function() {
      }
    console.log(classRoster); //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 });
-
 // |Script D| SHOWS THE DROPDOWN MENU FOR THE TEACHERS FORM +++++++++++++++++++
 function myFunction(id) {
     var x = document.getElementById(id);
@@ -168,7 +153,6 @@ function myFunction(id) {
         x.className = x.className.replace(" w3-show", "");
       }
     };
-
   // |Script E| GET THE TEACHER'S NAME FROM THE DATABASE+++++++++++++++++++++++
 // Ajax call
 $.get("/api/admin/teachers", function(data){
@@ -188,23 +172,17 @@ $.get("/api/admin/teachers", function(data){
     console.log(teacher);
   });
 }); //End of teacher Ajax call
-
 // |Script G| STORE THE NEW CLASS IN THE DATA BASE +++++++++++++++++++++++++++++
-
 $("#saveClass").on("click", function(){
     classTitle = $("#class-Title").val();
-
     classModel.NameClass = classTitle;
-
     classModel.teacher = teacher;
     classModel.Student = classRoster;
     console.log(classModel);
-
   $.post("admin/addClass", classModel, function(){
     alert("You saved a class");
     });
 });
-
 </script>
 </body>
 </html>

@@ -14,6 +14,12 @@ router.get("/admin/students", attController.callroster);
 router.get("/admin/teachers", attController.callTeachers);
 router.get("/admin/callaclass", attController.callAClass);
 router.get("/classesfor/:teacher", attController.callAClass);
+
+
+
+
+
+
 // | N | NAVIGATION  +++++==========================================
 
 //////////////For Add A Student Form//////////////////

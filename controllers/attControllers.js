@@ -57,6 +57,7 @@ callTeachers: function (req, res){
   });
 },
 
+
 callAClass: function(req, res){
   var teacher = req.params.teacher;
   console.log(teacher);
