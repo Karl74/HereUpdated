@@ -12,6 +12,15 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
+.booksLong {
+margin-left: -300px;
+margin-bottom: 0px;
+margin-top: 0px;
+border-bottom: 2px solid white;
+height: 240px;
+}
+
+
 .box h3{
   text-align:center;
     position:relative;
@@ -109,7 +118,7 @@ img {
     margin-left: -25px;
     vertical-align: middle;
     margin-top: 50px;
-    border: 2px solid #2d2d30;
+    /*border: 2px solid #2d2d30;*/
 
 }
 
@@ -133,13 +142,7 @@ padding-top: 20px;
 
 }
 
-.booksLong {
-margin-left: -300px;
-margin-bottom: 0px;
-margin-top: 0px;
-border-bottom: 2px solid white;
-height: 240px;
-}
+
 
 p {
 
@@ -264,7 +267,7 @@ border-radius: 15px;
     color: black;
     border: 3px solid black !important;
     font-family: 'Merriweather', serif
-}*/*/
+}*/
 
 .button {
    border-top: 1px solid #96d1f8;
@@ -310,6 +313,7 @@ background-color: black;
 color: white;
 padding: 20px;
 border-radius: 15px;
+
 }
 
 

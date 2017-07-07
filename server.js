@@ -62,10 +62,10 @@ passport.use(new Strategy(
       res.render('home.ejs', { user: req.user });
     });
 
-  app.get('/login',
-    function(req, res){
-      res.render('books');
-    });
+app.get('/login',
+function(req, res){
+       res.render('books');
+   });
 
   app.post('/login',
     passport.authenticate('local', { failureRedirect: '/books' }),
