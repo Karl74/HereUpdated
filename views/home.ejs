@@ -41,8 +41,10 @@ font-size: 45px;
 }
 
 button {
-margin-left: 100px;
+margin-left: 65px;
 padding: 20px;
+border: 3px grey solid;
+font-size: 25px;
 }
 
 img {
@@ -59,6 +61,13 @@ text-align: center;
 
 }
 
+#welcome {
+margin: auto;
+font-family: 'Merriweather', serif !important;
+margin-top: 150px;
+
+}
+
 
 </style>
 
@@ -71,12 +80,23 @@ text-align: center;
 
 <div id = "box">
 
-<p>Welcome</p>
-<h5>to</h5>
-<p>Here.</p>
-<p>Please log in</p>
 
+
+
+<% if (!user) { %>
+  <p>Welcome</p>
+  <h5>to</h5>
+  <p>Here.</p>
+  <p>Please log in</p>
 <button type="button"><a href="/login">Login</a></button>
+	 <!-- <p>Welcome! Please <a href="/login">log in</a>.</p> -->
+<% } else { %>
+
+  <div id = "welcome">
+    <button type="button"><a href="/Welcome">Welcome</a></button>
+  </div>
+
+<% } %>
 
 
 
@@ -87,7 +107,7 @@ text-align: center;
 
 
 <% if (!user) { %>
-	<!-- <p>Welcome! Please <a href="/login">log in</a>.</p>
+	 <p>Welcome! Please <a href="/login">log in</a>.</p>
 <% } else { %>
 	<p>Hello, <%= user.username %>. View your <a href="/Welcome">profile</a>.</p>
 <% } %>
