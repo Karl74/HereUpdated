@@ -3,7 +3,6 @@ var ClassModel = require("../models/classmodel");
 var Student = require("../models/student");
 var Teacher = require("../models/teacherModel");
 
-
 module.exports ={
   // | C | CREATE QUERIES ==========================================
 
@@ -34,7 +33,6 @@ module.exports ={
         res.json(err);
       });
     },
-
 
 // | -R | READ QUERIES ==========================================
  callroster:function (req, res){
@@ -72,4 +70,30 @@ callAClass: function(req, res){
     }
   });
 }
+// {"group.present": {$eq:false}} ====> do not filter
+// {$where:"group.present == false"} ====== error
+// {group:{$elemMatch: {present:false}}} do not filter
+
+// absencesReport: function(req, res){
+//   Attendance.find(}, function(err, abscences){
+//     if(err){
+//       res.status(500).send(err)
+//     } else {
+//       console.log(abscences)
+//       data = []
+//       abscences.forEach((each) =>{
+//         const groups_filtered = each.group.filter(elem =>{
+//         return !elem.present
+//       })
+//       let newAbscences = { id:abscences._id, group:groups_filtered}
+//       data.push(newAbscences)
+//       })
+//
+//
+//
+//       res.send(data);
+//     }
+//   });
+// }
+
     } //end of module exports

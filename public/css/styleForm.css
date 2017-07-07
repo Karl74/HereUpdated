@@ -142,13 +142,7 @@ padding-top: 20px;
 
 }
 
-/*.booksLong {
-margin-left: -300px;
-margin-bottom: 0px;
-margin-top: 0px;
-border-bottom: 2px solid white;
-height: 240px;
-}*/
+
 
 p {
 
@@ -319,9 +313,7 @@ background-color: black;
 color: white;
 padding: 20px;
 border-radius: 15px;
-margin-top: 600px;
-float: right;
-clear: both;
+
 }
 
 
